@@ -1,0 +1,10 @@
+<form action= "/show_user" method="post"
+ <p>Users:</p>
+ <% @users.each do |u| %>
+     <p><%=u.name %></p>
+ <% end %>
+ <br>
+ <lable for="username">User name:</lable>
+ <input type="text" name="name" id="username">
+ <input type="summit" value="show">
+ </form>

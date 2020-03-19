@@ -6,11 +6,11 @@ require './models/user'
 require './models/team'
 
 get '/' do
-    User.all.to_yam1 + Team.all.to_yam1
+    User.all.to_yaml + Team.all.to_yaml
 end
 
 get '/users1' do
-    @users = Users.all
+    @users = User.all
     erb :users1
 end
 
@@ -27,11 +27,12 @@ post '/show_user' do
     erb :user
 end
 
-post '/user/:id' do
-    @users = User.find_by(name: params[:id])
+get '/user/:id' do
+    @users = User.find(params[:id])
     if @user.nil?
        return "User not found"
     end
     erb :user
 end
+
 
